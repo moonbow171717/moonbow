@@ -166,6 +166,30 @@
   "parent": "냐람",
   "sub": "돌을 던진 것은 누구인가",
   "file": "who-threw-the-stone"
+},
+{
+  "title": "연애 포기 각서 (상)",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "연애 포기 각서",
+  "file": "no-dating-pledge-01"
+},
+{
+  "title": "연애 포기 각서 (하)",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "연애 포기 각서",
+  "file": "no-dating-pledge-02"
+},
+{
+  "title": "연애 포기 각서 (후기)",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "연애 포기 각서",
+  "file": "no-dating-pledge-03"
 }
 ]
 
