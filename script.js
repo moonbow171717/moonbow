@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (category === "diary") {
         // --- 여기서부터 사용자님의 실제 메뉴 구조입니다 ---
         const menuStructure = [
-          { name: "냐람", subs: ["너란 이유", "연애 포기 각서", "홈 스윗 홈", "러브 콤플렉스", "구원의 구원", "지구 열 바퀴", "NR"] },
-          { name: "냐쥬", subs: ["순애보증수표", "대타위기사랑", "NJ"] },
-          { name: "쥬얀", subs: ["양의 종말", "시시콜콜한 마음", "JA"] },
+          { name: "소설", subs: ["성간운", "5/10"] },
+		  { name: "냐람", subs: ["구원의 구원", "돌을 던진 것은 누구인가", "러브 콤플렉스", "연애 포기 각서", "지구 열 바퀴", "홈 스윗 홈", "NR"] },
+          { name: "냐쥬", subs: ["대타위기사랑", "순애보증수표", "NJ"] },
           { name: "댠닺", subs: ["Private", "DD"] },
-          { name: "글", subs: ["성간운", "5/10", "일상", "카페"] },
+		  { name: "쥬얀", subs: ["시시콜콜한 마음", "양의 종말", "JA"] },
           { name: "원작", subs: ["Denied Love"] },
           { name: "끄적끄적", subs: ["잡담"] }
         ];
