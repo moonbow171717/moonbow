@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지 - 하위 카테고리 가이드</title>
+<style>
+body { background: #1a1a1a; color: white; padding: 20px; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; flex-direction: column; }
+.box { max-width: 600px; width: 100%; background: #2a2a2a; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); box-sizing: border-box; margin-bottom: 20px; }
+input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; display: block; box-sizing: border-box; border-radius: 6px; border: 1px solid #444; background: #333; color: white; font-size: 16px; }
+textarea { height: 200px; }
+button { width: 100%; padding: 15px; background: #4a90e2; color: white; border: none; cursor: pointer; font-weight: bold; border-radius: 6px; font-size: 16px; margin-top: 10px; }
+button:hover { background: #357abd; }
+#adminContent, #resultArea { display: none; }
+.login-box { text-align: center; }
+label { font-size: 0.85em; color: #aaa; margin-top: 10px; display: block; font-weight: bold; }
+pre { background: #000; padding: 15px; border-radius: 6px; color: #0f0; overflow-x: auto; font-size: 13px; border: 1px solid #444; margin-bottom: 10px; }
+.copy-btn { background: #28a745; margin-bottom: 10px; }
+.copy-btn:hover { background: #218838; }
+.hint { font-size: 0.8em; color: #4a90e2; margin-top: 2px; margin-bottom: 10px; font-weight: bold; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<div id="loginSection" class="box login-box">
+<h2>관리자 인증</h2>
+<input type="password" id="passInput" placeholder="비밀번호 입력">
+<button onclick="checkPass()">로그인</button>
+</div>
+
+<div id="adminContent" class="box">
+<h2>✍️ 새 포스트 작성</h2>
+<label>파일 이름 (예: aa-03)</label>
+<input type="text" id="fileName">
+
+<label>글 제목</label>
+<input type="text" id="title">
+
+<label>상위 카테고리 (Parent)</label>
+<select id="parent" onchange="updateHint()">
+
+<option value="냐람">냐람</option>
+<option value="냐쥬">냐쥬</option>
+<option value="쥬얀">쥬얀</option>
+<option value="댠닺">댠닺</option>
+<option value="글">글</option>
+<option value="원작">원작</option>
+<option value="끄적끄적">끄적끄적</option>
+</select>
+
+<label>하위 카테고리 (시리즈 이름)</label>
+
+<div id="subHint" class="hint">추천: 목록을 불러오는 중...</div>
+<input type="text" id="sub" list="subList" placeholder="시리즈 이름을 쓰거나 고르세요">
+<datalist id="subList"></datalist>
+
+<label>날짜</label>
+<input type="date" id="date">
+
+<label>본문 내용</label>
+
+<textarea id="content"></textarea>
+
+<button onclick="go()">🚀 파일 생성 및 코드 추출</button>
+
+</div>
+
+<div id="resultArea" class="box">
+<h3 style="color: #4a90e2; margin-top: 0;">✅ 파일 다운로드 완료!</h3>
+<pre id="indexCode"></pre>
+<button id="btnCopy" class="copy-btn" onclick="copyCode()">📋 코드 복사하기</button>
+<button onclick="location.reload()" style="background: #555;">새 글 작성하러 가기</button>
+</div>
+
+<script>
+// 추천 목록 데이터 (원하는 대로 수정하세요)
+const menuData = {
+"냐람": ["너란 이유", "연애 포기 각서", "홈 스윗 홈", "러브 콤플렉스", "구원의 구원", "지구 열 바퀴", "NR"],
+"냐쥬": ["순애보증수표", "대타위기사랑", "NJ"],
+"쥬얀": ["양의 종말", "시시콜콜한 마음", "JA"],
+"댠닺": ["Private", "DD"],
+"글": ["성간운", "5/10", "일상", "카페"],
+"원작": ["Denied Love"],
+"끄적끄적": ["잡담"]
+};
+
+function updateHint() {
+const p = document.getElementById('parent').value;
+const hintBox = document.getElementById('subHint');
+const dataList = document.getElementById('subList');
+const subs = menuData[p] || [];
+
+// 파란색 글씨 업데이트
+hintBox.innerText = "추천: " + subs.join(", ");
+
+// 드롭다운 목록 업데이트
+dataList.innerHTML = "";
+subs.forEach(s => {
+const opt = document.createElement('option');
+opt.value = s;
+dataList.appendChild(opt);
+});
+}
+
+window.onload = () => {
+document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+updateHint();
+};
+
+function checkPass() {
+if (document.getElementById('passInput').value === "1234") {
+document.getElementById('loginSection').style.display = 'none';
+document.getElementById('adminContent').style.display = 'block';
+document.body.style.alignItems = 'flex-start';
+} else { alert("비밀번호가 틀렸습니다!"); }
+}
+
+function dl(n, t) {
+const a = document.createElement('a');
+a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(t);
+a.download = n;
+a.click();
+}
+
+function go() {
+const f = document.getElementById('fileName').value.trim();
+const t = document.getElementById('title').value.trim();
+const d = document.getElementById('date').value;
+const p = document.getElementById('parent').value;
+const s = document.getElementById('sub').value.trim();
+const c = document.getElementById('content').value;
+
+if(!f || !t || !s) return alert("다 입력해주세요!");
+
+const json = { "title": t, "date": d, "category": "diary", "parent": p, "sub": s, "text": "posts/" + f + ".txt" };
+const indexEntry = { "title": t, "date": d, "category": "diary", "parent": p, "sub": s, "file": f };
+const codeText = JSON.stringify(indexEntry, null, 2) + ",";
+
+dl(f + ".json", JSON.stringify(json, null, 2));
+dl(f + ".txt", c);
+
+document.getElementById('indexCode').innerText = codeText;
+document.getElementById('adminContent').style.display = 'none';
+document.getElementById('resultArea').style.display = 'block';
+window.scrollTo(0, 0);
+}
+
+function copyCode() {
+const code = document.getElementById('indexCode').innerText;
+navigator.clipboard.writeText(code).then(() => {
+const btn = document.getElementById('btnCopy');
+btn.innerText = "✅ 복사되었습니다!";
+setTimeout(() => { btn.innerText = "📋 코드 복사하기"; }, 2000);
+});
+}
+</script>
+
+</body>
+</html>
