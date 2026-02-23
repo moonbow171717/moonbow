@@ -70,5 +70,37 @@
   "parent": "냐람",
   "sub": "구원의 구원",
   "file": "salvationofsalvation-03"
+},
+{
+  "title": "퍼펙트사이먼",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "NR",
+  "file": "perfectsimon"
+},
+{
+  "title": "보더라인",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "NR",
+  "file": "borderline"
+},
+{
+  "title": "지구 열 바퀴 上",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "지구 열 바퀴",
+  "file": "tentimesearth-01"
+},
+{
+  "title": "지구 열 바퀴 下",
+  "date": "2026-02-23",
+  "category": "diary",
+  "parent": "냐람",
+  "sub": "지구 열 바퀴",
+  "file": "tentimesearth-02"
 }
 ]
