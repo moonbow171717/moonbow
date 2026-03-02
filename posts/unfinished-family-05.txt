@@ -1,6 +1,11 @@
 6.   두쫀 빚는 노바이
 
-<div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">사범님 뭐해요</div></div><div style="display: flex; justify-content: flex-end; margin: 5px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">사범님 이안이언니 두쫀 뺏어먹는 중 </div></div><div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">이안이언니 보고 싶다!! 🥺</div></div><div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">저도 두쫀 먹고 싶어요</div></div><div style="display: flex; justify-content: flex-end; margin: 5px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">ㅋㅋ하람 언니한테 허락 맡아</div></div><div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">언니가 오늘 아이스크림 먹었다고 </div></div><div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">안된대요ㅜㅜㅜㅜㅜㅜㅜㅜㅜ</div></div>
+<div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">사범님 뭐해요</div></div>
+<div style="display: flex; justify-content: flex-end; margin: 2px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">사범님 이안이언니 두쫀 뺏어먹는 중 </div></div>
+<div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-r<div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">이안이언니 보고 싶다!! 🥺</div></div>adius: 2px; max-width: 70%;">저도 두쫀 먹고 싶어요</div></div>
+<div style="display: flex; justify-content: flex-end; margin: 2px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">ㅋㅋ하람 언니한테 허락 맡아</div></div>
+<div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">언니가 오늘 아이스크림 먹었다고 </div></div><div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">안된대요ㅜㅜㅜㅜㅜㅜㅜㅜㅜ</div></div>
+
 
 유하람은 절대 안 할 것 같은 말투인데 유하람 이름을 달고 오는 문자는 꽤 색다른 재미가 있었다. 연달아 오는 우는 이모티콘에 휴대폰을 보고 킥킥 웃고 있으니 옆에서 수상한 인기척이 느껴졌다. 노유나는 쳐다도 보지 않고 넥슬라이스를 날렸다. 
 
@@ -43,4 +48,3 @@
 "쫀이안." 
 
 "아 구려요~!" 
-
