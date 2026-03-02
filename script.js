@@ -43,13 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (category === "diary") {
         // --- 여기서부터 사용자님의 실제 메뉴 구조입니다 ---
         const menuStructure = [
-          { name: "소설", subs: ["5/10", "성간운"] },
 		  { name: "냐람", subs: ["구원의 구원", "나를 사랑하지 않는 그대에게", "돌을 던진 것은 누구인가", "러브 콤플렉스", "여름은 빙판 위에서 녹지 않는다", "연애 포기 각서", "지구 열 바퀴", "홈 스윗 홈", "NR"] },
           { name: "냐쥬", subs: ["대타위기사랑", "순애보증수표", "NJ"] },
           { name: "댠닺", subs: ["Private", "DD"] },
-		  { name: "쥬얀", subs: ["시시콜콜한 마음", "양의 종말", "JA"] },
-          { name: "원작", subs: ["Denied Love"] },
-          { name: "끄적끄적", subs: ["잡담"] }
+		  { name: "쥬얀", subs: ["시시콜콜한 마음", "양의 종말", "JA"] }
         ];
 
         let menuHtml = `<a href="index.html?cat=diary" class="${!parentParam && !subParam ? 'active' : ''}">전체 기록</a>`;
