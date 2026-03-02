@@ -19,7 +19,6 @@ pre { background: #000; padding: 15px; border-radius: 6px; color: #0f0; overflow
 .hint { font-size: 0.8em; color: #4a90e2; margin-top: 2px; margin-bottom: 10px; font-weight: bold; line-height: 1.4; }
 .adult-check { display: flex; align-items: center; gap: 10px; cursor: pointer; background: #331a1a; padding: 12px; border-radius: 6px; border: 1px solid #552222; margin: 10px 0; }
 
-/* 통합 편집 도구 스타일 */
 .edit-tools { background: #333; padding: 15px; border-radius: 8px; border: 1px solid #444; margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
 .tool-row { display: flex; gap: 8px; }
 .img-input-group { flex: 1; }
@@ -28,7 +27,6 @@ pre { background: #000; padding: 15px; border-radius: 6px; color: #0f0; overflow
 .btn-center { background: #9b59b6; font-size: 14px; padding: 10px; width: 100%; margin: 0; }
 .btn-center:hover { background: #8e44ad; }
 
-/* 말풍선 버튼 스타일 */
 .btn-talk-left { background: #555; font-size: 13px; padding: 10px; flex: 1; margin: 0; }
 .btn-talk-right { background: #2c3e50; font-size: 13px; padding: 10px; flex: 1; margin: 0; border: 1px solid #4a90e2; }
 </style>
@@ -133,18 +131,17 @@ function insertCenter() {
   textarea.focus();
 }
 
-// 💡 말풍선 삽입 함수
 function insertTalk(type) {
   const textarea = document.getElementById('content');
   const start = textarea.selectionStart;
   const end = textarea.selectionEnd;
-  const selectedText = textarea.value.substring(start, end) || "대화 내용을 입력하세요";
+  const selectedText = textarea.value.substring(start, end) || "대화 내용";
   
   let talkTag = "";
   if(type === 'left') {
-    talkTag = `<div style="display: flex; flex-direction: column; align-items: flex-start; margin: 10px 0;"><span style="font-size: 12px; color: #aaa; margin-left: 5px;">이름</span><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%; margin-top: 3px;">${selectedText}</div></div>`;
+    talkTag = `<div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
   } else {
-    talkTag = `<div style="display: flex; flex-direction: column; align-items: flex-end; margin: 10px 0;"><span style="font-size: 12px; color: #aaa; margin-right: 5px;">나</span><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%; margin-top: 3px;">${selectedText}</div></div>`;
+    talkTag = `<div style="display: flex; justify-content: flex-end; margin: 5px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
   }
   
   textarea.value = textarea.value.substring(0, start) + talkTag + textarea.value.substring(end);
