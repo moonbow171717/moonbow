@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지 - 메신저 스타일 편집</title>
+<title>관리자 페이지 - 편집 도구 개선</title>
 <style>
 body { background: #1a1a1a; color: white; padding: 20px; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; flex-direction: column; }
 .box { max-width: 600px; width: 100%; background: #2a2a2a; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); box-sizing: border-box; margin-bottom: 20px; }
@@ -27,7 +27,6 @@ pre { background: #000; padding: 15px; border-radius: 6px; color: #0f0; overflow
 .btn-center { background: #9b59b6; font-size: 14px; padding: 10px; width: 100%; margin: 0; }
 .btn-center:hover { background: #8e44ad; }
 
-/* 말풍선 버튼 스타일 */
 .btn-talk-left { background: #555; font-size: 13px; padding: 10px; flex: 1; margin: 0; }
 .btn-talk-right { background: #2c3e50; font-size: 13px; padding: 10px; flex: 1; margin: 0; border: 1px solid #4a90e2; }
 </style>
@@ -73,20 +72,20 @@ pre { background: #000; padding: 15px; border-radius: 6px; color: #0f0; overflow
   <label style="margin-top:0; color:#4a90e2;">🛠️ 편집 도구</label>
   <div class="tool-row">
     <div class="img-input-group">
-      <input type="text" id="midImgUrl" placeholder="이미지 주소 붙여넣기">
+      <input type="text" id="midImgUrl" placeholder="이미지 주소(디스코드 등) 붙여넣기">
     </div>
     <button type="button" class="btn-img" onclick="insertImage()">🖼️ 사진 삽입</button>
   </div>
   <button type="button" class="btn-center" onclick="insertCenter()">↔️ 선택 영역 가운데 정렬</button>
   
   <div class="tool-row">
-    <button type="button" class="btn-talk-left" onclick="insertTalk('left')">🗨️ 상대방 (왼쪽)</button>
-    <button type="button" class="btn-talk-right" onclick="insertTalk('right')">🗨️ 나 (오른쪽)</button>
+    <button type="button" class="btn-talk-left" onclick="insertTalk('left')">🗨️ 왼쪽 말풍선(상대)</button>
+    <button type="button" class="btn-talk-right" onclick="insertTalk('right')">🗨️ 오른쪽 말풍선(나)</button>
   </div>
 </div>
 
 <label>본문 내용</label>
-<textarea id="content" placeholder="글 내용을 작성하세요."></textarea>
+<textarea id="content" placeholder="글 내용을 작성하세요. 사진, 정렬, 대화창은 버튼을 사용하세요."></textarea>
 
 <button onclick="go()">🚀 파일 생성 및 코드 추출</button>
 </div>
@@ -132,19 +131,17 @@ function insertCenter() {
   textarea.focus();
 }
 
-// 💡 말풍선 함수 (따닥따닥 버전)
 function insertTalk(type) {
   const textarea = document.getElementById('content');
   const start = textarea.selectionStart;
   const end = textarea.selectionEnd;
-  const selectedText = textarea.value.substring(start, end) || "내용 입력";
+  const selectedText = textarea.value.substring(start, end) || "대화 내용";
   
   let talkTag = "";
   if(type === 'left') {
-    // margin: 2px 0 으로 간격을 좁혔습니다.
-    talkTag = `<div style="display: flex; justify-content: flex-start; margin: 2px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
+    talkTag = `<div style="display: flex; justify-content: flex-start; margin: 5px 0;"><div style="background: #333; color: white; padding: 8px 12px; border-radius: 15px; border-top-left-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
   } else {
-    talkTag = `<div style="display: flex; justify-content: flex-end; margin: 2px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
+    talkTag = `<div style="display: flex; justify-content: flex-end; margin: 5px 0;"><div style="background: #4a90e2; color: white; padding: 8px 12px; border-radius: 15px; border-top-right-radius: 2px; max-width: 70%;">${selectedText}</div></div>`;
   }
   
   textarea.value = textarea.value.substring(0, start) + talkTag + textarea.value.substring(end);
