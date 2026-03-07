@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let posts = [...validPosts];
 
       if (category === "diary") {
-        // --- 여기서부터 사용자님의 실제 메뉴 구조입니다 ---
+        // --- 업데이트된 메뉴 구조 (냐람, 냐쥬, 댠닺, 쥬얀) ---
         const menuStructure = [
-		  { name: "냐람", subs: ["구원의 구원", "나를 사랑하지 않는 그대에게", "돌을 던진 것은 누구인가", "러브 콤플렉스", "미완성 가족", "여름은 빙판 위에서 녹지 않는다", "연애 포기 각서", "지구 멸망 판독 보고서", "지구 열 바퀴", "홈 스윗 홈", "NR"] },
+          { name: "냐람", subs: ["구원의 구원", "나를 사랑하지 않는 그대에게", "돌을 던진 것은 누구인가", "러브 콤플렉스", "미완성 가족", "여름은 빙판 위에서 녹지 않는다", "연애 포기 각서", "지구 멸망 판독 보고서", "지구 열 바퀴", "홈 스윗 홈", "NR"] },
           { name: "냐쥬", subs: ["대타위기사랑", "순애보증수표", "NJ"] },
           { name: "댠닺", subs: ["Private", "DD"] },
-		  { name: "쥬얀", subs: ["시시콜콜한 마음", "양의 종말", "JA"] }
+          { name: "쥬얀", subs: ["시시콜콜한 마음", "양의 종말", "JA"] }
         ];
 
         let menuHtml = `<a href="index.html?cat=diary" class="${!parentParam && !subParam ? 'active' : ''}">전체 기록</a>`;
@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
         });
         subMenu.innerHTML = menuHtml;
-        // ----------------------------------------------
       } else {
         subMenu.innerHTML = `<a href="index.html" class="active">최신글 목록</a>`;
       }
@@ -76,8 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (subParam) posts = posts.filter(p => p.sub === subParam);
       else if (parentParam) posts = posts.filter(p => p.parent === parentParam);
 
-      // 파일명(file) 순으로 정렬
-      posts.sort((a, b) => (a.file < b.file ? -1 : 1));
+      // --- 수정된 부분: 숫자를 인식하는 똑똑한 정렬로 교체 ---
+      posts.sort((a, b) => a.file.localeCompare(b.file, undefined, { numeric: true, sensitivity: 'base' }));
 
       list.innerHTML = "";
       posts.forEach(p => {
